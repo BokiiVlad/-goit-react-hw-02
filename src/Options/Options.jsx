@@ -1,6 +1,10 @@
 import css from "./Options.module.css";
 
-export default function Options({ handleClick }) {
+export default function Options({
+  handleClick,
+  totalFeedback,
+  removeFeedback,
+}) {
   return (
     <div className={css.butField}>
       <li>
@@ -18,9 +22,13 @@ export default function Options({ handleClick }) {
           Bad
         </button>
       </li>
-      <li>
-        <button type="button">Reset</button>
-      </li>
+      {totalFeedback > 0 && (
+        <li>
+          <button onClick={removeFeedback} type="button">
+            Reset
+          </button>
+        </li>
+      )}
     </div>
   );
 }

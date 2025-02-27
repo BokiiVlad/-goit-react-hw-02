@@ -16,10 +16,18 @@ function App() {
     });
   };
 
+  const removeFeedback = () => {
+    setClicks({ good: 0, neutral: 0, bad: 0 });
+  };
+
   return (
     <>
       <Description />
-      <Options clicks={clicks} handleClick={updateFeedback} />
+      <Options
+        removeFeedback={removeFeedback}
+        totalFeedback={totalFeedback}
+        handleClick={updateFeedback}
+      />
       {totalFeedback > 0 ? <Feedback value={clicks} /> : <Notification />}
     </>
   );
